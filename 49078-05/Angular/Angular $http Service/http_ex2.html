@@ -1,0 +1,40 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular Timeout</title>
+	<script src="//code.angularjs.org/1.6.0/angular.min.js"></script>
+	<script>
+		var app = angular.module('myApp',[]);
+		
+		app.controller('myController',function($scope, $http){
+			
+			$http.get('server/?q=Contacts').then(function(response){
+				
+				$scope.Contacts = response.data;
+				
+			});
+
+		});
+	</script>
+</head>
+<body>
+
+	<div ng-controller="myController">
+
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Phone</th>
+			</tr>
+			<tr ng-repeat="contact in Contacts">
+				<td>{{ contact.name }}</td>
+				<td>{{ contact.phone }}</td>
+			</tr>
+		</table>
+		
+	</div>
+	
+
+</body>
+</html>

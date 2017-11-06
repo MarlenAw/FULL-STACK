@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Untitled Document</title>
+	
+	<script>
+	
+		var x = function( ) {
+			
+		}
+		
+		x();
+		
+		
+		window.onload = function() {
+			var myButton = document.getElementById('myButton');
+
+			myButton.onclick = function() {
+
+				console.log('Button was clicked');
+			}			
+		}
+		
+		//	timeouts
+
+		setTimeout(function(){ console.log('1'); }, 3000);
+		setTimeout(function(){ console.log('2'); }, 5000);
+		setTimeout(function(){ console.log('3'); }, 2000);
+		
+		//	ajax
+		
+		var ajax = new XMLHttpRequest();
+		
+		//	where should ajax go?
+		ajax.open('GET','server_side_content.php');
+		
+		//	what should ajax do when the server responds
+		ajax.onreadystatechange = function() {
+			if(ajax.readyState == 4 && ajax.status == 200) {
+				console.log('Data from server: ', ajax.responseText );				
+			}
+		}
+		
+		//	go
+		ajax.send();
+		
+	</script>
+	
+</head>
+<body>
+
+	<button id="myButton">Click Me</button>
+
+</body>
+</html>

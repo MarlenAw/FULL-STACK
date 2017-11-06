@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Angular</title>
+	<script src="https://code.angularjs.org/1.6.2/angular.min.js" ></script>
+	<script>
+	
+		var x = 5;
+		
+		//	Create an App reference
+		var myApp = angular.module("myApp",[]);
+		
+		//	Create a controller
+		myApp.controller("myCTRL_1",function( $scope ){
+			
+			console.log("myCTRL_1 started!");
+			
+			$scope.x = x;
+			
+		});
+		
+		
+		myApp.controller("myCTRL_2",function( $scope ){
+			
+			console.log("myCTRL_2 started!");
+			
+			$scope.x = 3;	//	Not the same x of myCTRL_1
+							//	each controller has its own instance of $scope
+			
+		});
+		
+		
+		
+		
+	</script>
+</head>
+<body ng-app="myApp">
+
+	<h1>Hello Angular</h1>
+
+	<div ng-controller="myCTRL_1">
+		<p>The value of x is {{ x }}</p>
+	</div>
+	
+	<div ng-controller="myCTRL_2">
+		<p>The value of x is {{ x }}</p>
+	</div>	
+	
+	
+	
+</body>
+</html>

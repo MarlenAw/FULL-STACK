@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function storageChange(evt)
+        {
+           // alert("C");
+        }
+        function start() {
+
+            window.addEventListener('storage',storageChange);
+
+            if (storageAvailable('localStorage')) {
+                // Yippee! We can use localStorage awesomeness
+                window.sessionStorage.setItem("item1", "Samp 1");
+                window.sessionStorage.setItem("item2", "Samp 2");
+            }
+            else {
+                // Too bad, no localStorage for us
+            }
+        }
+        function displayStorage()
+        {
+            alert(window.sessionStorage.getItem("item1"));
+        }
+        function storageAvailable(type) {
+            try {
+
+                var storage = window[type],
+                    x = '__storage_test__';
+                storage.setItem(x, x);
+                storage.removeItem(x);
+                return true;
+            }
+            catch(e) {
+
+                return false;
+            }
+            finally
+            {
+
+            }
+        }
+
+    </script>
+</head>
+<body onload="start()">
+   <button id="myBotton" onclick="displayStorage()">Click</button>
+
+
+</body>
+</html>

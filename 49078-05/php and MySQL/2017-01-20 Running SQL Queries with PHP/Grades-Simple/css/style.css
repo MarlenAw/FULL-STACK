@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+
+* {
+	font-family: 'Slabo 27px', serif;
+}
+.grades {
+	border: 1px solid gray;
+}	
+
+.grades th {
+	background-color: #1b43c9;
+	color: white;
+	padding: 5px 15px
+}
+
+.grades td {
+	background-color: silver;
+	padding: 5px 15px
+}

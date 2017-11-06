@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Untitled Document</title>
+	<script>
+		
+		//
+		//	multiply is a reference to a function 
+		//	that takes two parameters: x and y
+		//
+		//	x and y are kind of local-varialbes of
+		//	the multiply function
+		//	they are not related to any other x and y OUT of 
+		//	the function
+		
+		
+		function multiply(x,y) {
+			return x*y;
+		}
+		
+		//
+		//	c - is a reference to a function 
+		//	that takes one parameter: b
+		//
+		//	b - is a local-variable, in fact, a local-reference
+		//	of ANY given function
+		
+		function c( b ){
+			
+			console.log('c is working');
+			
+			
+			b();
+		}
+	
+		
+		
+		function a() {
+			console.log('a is working..');
+			
+			//	some interesting code
+			
+			console.log('a is done');
+		}
+	
+		
+		c( a );
+		
+		c(function(){
+			
+		});
+		
+		
+		
+		
+		
+		
+//		var y = a;
+//		
+//		y();
+		
+		setTimeout( a , 5000 );
+		
+		setTimeout( function(){
+			
+		} , 5000);
+		
+		
+		
+		var i = 5;
+		
+		function doSomething(){
+			var i;
+			
+			i = 3;
+			
+			console.log(i);
+		}
+		
+	</script>
+</head>
+<body>
+
+
+
+</body>
+</html>

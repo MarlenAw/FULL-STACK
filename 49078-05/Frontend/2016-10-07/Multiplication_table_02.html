@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>jQuery Multiplication Table</title>
+<meta charset="utf-8">
+<script src="../jquery-3.1.0.js"></script>
+<script>
+
+function doTable(tableX,tableY){
+
+  string="<table>";
+   for (i=0;i<=(tableY) ;i++ )
+   {
+       string+="<tr>";
+
+       for (z=0;z<=(tableX) ;z++ )
+       {
+        if (i==0 && z==0){string+="<td></td>";}
+        else if (i==0){string+="<td>"+z+"</td>";}
+        else if (z==0){string+="<td>"+i+"</td>";}
+        else string+="<td></td>";
+       }
+
+       string+="</tr>";
+   }
+
+   string+="</table>";
+
+  $(".box").html(string);
+    
+    
+}
+
+   $(document).ready(function(){
+   var Amudot=(prompt("Amudot X",""))*1;
+   var Shurot=(prompt("Shurot Y",""))*1;
+   doTable(Amudot,Shurot);
+
+
+
+     var headerX;
+	 $("table tr:first td").css({"background-color":"#f19989"});
+	 $("table tr").find("td:first").css({"background-color":"#f19989"});
+
+
+	  /*********************************************************/
+      /* COLORING THE HEADERS WITH BLUE WHEN WHILE IN THE TABLE*/
+      /*********************************************************/
+
+     $("table tr").find("td").hover(function(){
+
+	   headerX=$(this).index();
+	 
+	   $(this).css({"background-color":"#dddddd"});
+	   $(this).parent().find("td:first").css({"background-color":"#000099","color":"#ffffff"});
+	   $("table tr:first td:eq("+headerX+")").css({"background-color":"#000099","color":"#ffffff"});
+	   
+	 
+	 },function(){
+
+	   $(this).css({"background-color":"#ffffff"});
+       $(this).parent().find("td:first").css({"background-color":"#f19989","color":"#000000"});	 
+	   $("table tr:first td:eq("+headerX+")").css({"background-color":"#f19989","color":"#000000"});
+
+	 });
+
+
+
+
+
+	  /*************************/
+      /* FILLING RESULTS AND ? */
+      /*************************/
+	 
+	 $("table tr").find("td").click(function(){
+
+		 var x=$(this).index();
+		 var y=$(this).parent().index();
+		 res=x*y;
+
+        if(x>0 && y>0)
+		 {
+		   $(this).html(res)
+         }
+
+	 });
+
+
+
+	  /**********************/
+      /* CLEARING THE TABLE */
+      /**********************/
+
+   $("input").click(function(){
+	
+	$("table tr:gt(0)").find("td:gt(0)").html("&nbsp;");
+
+   });
+
+
+
+
+
+   
+   }); //END READY
+
+
+   
+  </script>
+
+  <style>
+   table{
+   border:1px solid #000000;
+   border-collapse:collapse;
+	margin:20px auto 0;
+   }
+   table tr td{
+   border:1px solid #000000;
+    height:50px;
+    width:50px;
+	font-family:arial;
+	font-size:18px;
+	text-align:center;
+	font-weight:bold;
+	cursor:pointer;
+   }
+  </style>
+
+ </head>
+
+ <body>
+<center><input type="button" value="reset table"></center>
+<div class="box"></div>
+ </body >
+</html>

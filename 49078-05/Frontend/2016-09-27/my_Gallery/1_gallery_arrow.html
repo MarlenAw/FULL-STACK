@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Gallery</title>
+<meta charset="utf-8">
+<script>
+
+
+  var x=1;
+  function next_pic()
+  { 
+   x++;
+   if (x==10) {x=1;}
+   document.getElementById('pic').src="pics/"+x+".jpg";
+   document.getElementById('picnum').innerHTML=x;
+  }
+	
+  function prev_pic()
+  { 
+   x--;
+   if (x==0) {x=9;}
+   document.getElementById('pic').src="pics/"+x+".jpg";
+   document.getElementById('picnum').innerHTML=x;
+  }
+	
+</script>
+
+<style>
+.box{
+width:600px;
+height:450px;
+border:10px solid #000000;
+margin:30px auto 0px;
+position:relative;
+}
+.arrows_box{
+width:170px;
+height:30px;
+margin:30px auto;
+}
+.pic_num{
+width:100px;
+height:30px;
+background-color:#5f5f5f;
+color:#ffffff;
+line-height:30px;
+text-align:center;
+font-family:arial;
+font-size:16px;
+position:absolute;
+bottom:10px;
+left:10px;
+}
+
+.prev_button{
+width:78px;
+height:30px;
+background:url('images/back.png') top left no-repeat;
+border:none;
+float:left;
+}
+
+.next_button{
+width:78px;
+height:30px;
+background:url('images/next.png') top left no-repeat;
+border:none;
+float:right;
+}
+</style>
+
+ </head>
+
+ <body>
+ <div class="box">
+     <img src="pics/1.jpg" id="pic"/>
+     <div class="pic_num">picture <span id="picnum">1</span>/9</div>
+ </div>
+
+ <div class="arrows_box">
+   <input type="button" class="prev_button">
+   <input type="button" class="next_button">
+ </div>
+ 
+ <script>
+  document.getElementsByTagName('input')[0].addEventListener("click",prev_pic);
+  document.getElementsByTagName('input')[1].addEventListener("click",next_pic);
+ </script>
+ 
+  
+ </body >
+</html>

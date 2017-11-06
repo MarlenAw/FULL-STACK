@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hello JavaScript</title>
+	
+	<script>
+	
+		var x = 3;
+		
+		function doSomething() {
+						
+			console.log( 'Doing something...' );
+			
+		}
+		
+		var y = doSomething;
+		
+		
+		//	Invoking doSomething through the 'y' reference
+		y();	//	output: Doing something...
+		
+		
+		
+		function a( f ) {
+			
+			console.log('Doing what a needs to do...');
+			
+			//	before returning, call f
+			f();
+		}
+		
+		
+		function aPro( f ) {
+			
+			console.log('Doing what aPro needs to do...');
+			
+			var data = { message: 'Life is good' };
+			
+			//	Call f and pass data
+			f( data );
+			
+		}
+		
+		
+		//	When calling a(), must pass a function
+		a( y );	//	ok
+		
+		//	output:	
+		//	Doing what a needs to do...
+		//	Doing something...
+		//
+		
+		
+		
+		
+		
+		
+		a( doSomething );	//	Great
+		
+		//	output:	
+		//	Doing what a needs to do...
+		//	Doing something...
+		//		
+		
+		
+		
+		
+		
+		
+		a( function() {
+			console.log('I am an ANONYMOUS function');
+		} );
+		
+		//	output:	
+		//	Doing what a needs to do...
+		//	I am an ANONYMOUS function
+		//		
+		
+		
+		setTimeout( doSomething, 5000 );
+		//	output:	
+		//	Doing something...
+		//	
+		
+		
+		
+		aPro( function( dataPassed ){
+			
+			console.log('I am an ANONYMOUS function with a parameter');
+			console.log( dataPassed );
+			
+		} );
+		
+		
+		aPro( function( x ){ 
+						
+			console.log('I\'m an ANONYMOUS function that does not take a parameter, called by aPro');
+			
+		});
+		
+		
+	</script>
+	
+</head>
+<body>
+
+
+
+</body>
+</html>

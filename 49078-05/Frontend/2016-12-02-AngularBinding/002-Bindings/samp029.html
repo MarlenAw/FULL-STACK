@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="samp029">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample020-Bind</title>
+    <link rel="stylesheet" href="bootstrap.css"/>
+    <link rel="stylesheet" href="bootstrap-theme.css"/>
+    <script src="../003-Forms/angular.js"></script>
+
+    <script type="text/javascript">
+        var myApp=angular.module("samp029",[]).
+        controller("defaultCtrl",function($scope){
+            $scope.todos = [
+                { action: "Get groceries", complete: false },
+                { action: "Call plumber", complete: false },
+                { action: "Buy running shoes", complete: true },
+                { action: "Buy flowers", complete: false },
+                { action: "Call family", complete: false }];
+        });
+    </script>
+    <style>
+        .odd { background-color: lightcoral}
+        .even { background-color: lavenderblush}
+    </style>
+</head>
+<body>
+<div id="todoPanel" class="panel" ng-controller="defaultCtrl">
+    <h2 class="panel-header">Todo List Binding</h2>
+
+    <ng-include src="'samp029table.html'"></ng-include>
+
+</div>
+</body>
+</html>

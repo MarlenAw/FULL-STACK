@@ -1,0 +1,84 @@
+#	1
+SELECT MAX(grade)
+FROM grades;
+
+# OUTPUT: 100
+
+
+#	2
+SELECT MAX(grade)
+FROM grades
+WHERE course='Java';
+
+# OUTPUT: 97
+
+
+#	3
+SELECT COUNT(fullname)
+FROM grades
+WHERE course = 'php';
+
+# OUTPUT: 25
+
+#	4
+SELECT DISTINCT course
+FROM grades
+ORDER BY course;
+
+#	5
+SELECT course, AVG(grade)
+FROM grades
+GROUP BY course;
+
+# OUTPUT
+course	AVG(grade)
+CSS		75.9310
+Java	82.5200
+MySQL	81.8571
+php		88.0000
+
+#	6
+SELECT course, AVG(grade) AS average
+FROM grades
+GROUP BY course
+ORDER BY average DESC;
+
+# OUTPUT:
+
+course	average
+php		88.0000
+Java	82.5200
+MySQL	81.8571
+CSS		75.9310
+
+
+#	7
+SELECT course, COUNT(fullname) AS cnt
+FROM grades
+GROUP BY course
+ORDER BY cnt ASC;
+
+OUTPUT
+======
+
+course	cnt
+MySQL	21
+Java	25
+php	25
+CSS	29
+
+
+#	8
+SELECT course, AVG(grade) AS average
+FROM grades
+GROUP BY course
+HAVING average > 80
+ORDER BY average;
+
+OUTPUT
+======
+
+course	average
+MySQL	81.8571
+Java	82.5200
+php		88.0000

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function play()
+        {
+            var objvv=document.getElementById("vv");
+            objvv.play();
+        }
+        function stop()
+        {
+            var objvv=document.getElementById("vv");
+            objvv.pause();
+        }
+
+    </script>
+</head>
+<body>
+<video id="vv"   autobuffer="true"
+       width="400px" height="300px">
+    <source src="Intermission-Walk-in.ogv" />
+    <source src="Intermission-Walk-in_512kb.mp4" />
+</video>
+    <br/>
+    <button onclick="play()">Play</button>
+    <button onclick="stop()">Pause</button><br/>
+    <span id="myspan"></span>
+    <script>
+        //type='video/ogg; codecs="theora, vorbis"'>
+        //type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
+        setInterval(function()
+        {
+            var objvv=document.getElementById("vv");
+            var objspan=document.getElementById("myspan");
+            myspan.innerHTML= Math.round(objvv.currentTime) + " / "+ Math.round(objvv.duration)+" Sec.";
+        },100);
+    </script>
+</body>
+</html>

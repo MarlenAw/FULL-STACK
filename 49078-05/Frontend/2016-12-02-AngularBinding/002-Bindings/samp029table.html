@@ -1,0 +1,16 @@
+<table class="table">
+    <tr>
+        <th>Index</th>
+        <th>Action</th>
+        <th>Complete</th>
+        <th>Mark</th>
+    </tr>
+    <tr ng-repeat="item in todos" ng-class="$odd ? 'odd':'even'">
+        <td>{{$index}}</td>
+        <td>{{item.action}}</td>
+        <td>{{item.complete}}</td>
+        <td><span ng-if="$first">First</span>
+            <span ng-if="$last">Last</span>
+            <span ng-if="$middle">Middle</span></td>
+    </tr>
+</table>

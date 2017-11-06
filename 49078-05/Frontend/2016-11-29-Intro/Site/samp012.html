@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="samp012">
+<head>
+    <meta charset="UTF-8">
+    <title>samp012-Program Stracture</title>
+    <link rel="stylesheet" href="bootstrap.css"/>
+    <link rel="stylesheet" href="bootstrap-theme.css" />
+    <script src="angular.js"></script>
+    <script type="text/javascript">
+        var myapp=angular.module("samp012",[]);
+
+        myapp.controller("dayCtrl",function($scope){
+            var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday",
+                "Thursday", "Friday", "Saturday"];
+            $scope.day = dayNames[new Date().getDay()];
+            $scope.tommorow = dayNames[(new Date().getDay()+1) % 7];
+        });
+
+        myapp.directive("highlight", function()
+        {
+           return function(scope,element,attrs)
+           {
+               if (scope.day==attrs["highlight"])
+               {
+                   return element.css("color","red");
+               }
+           }
+        });
+
+    </script>
+</head>
+<body>
+<div class="panel" ng-controller="dayCtrl">
+    <div class="page-header">
+        <h3>AngularJS App</h3>
+    </div>
+    <h4>Today is {{day || "(unknown)"}}</h4>
+    <h4 highlight="Thursday">Tomorrow is {{tommorow || "(unknown)"}}</h4>
+</div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+//	Add a new record to products table
+INSERT INTO products 
+(name, price, vendor, category)
+VALUES 
+('Bamba',5, 'Osem','Snaks'); 
+
+
+//	Add Multiple records at once
+INSERT INTO products 
+(name, price, vendor, category)
+VALUES 
+('Bisli','8', 'Osem','Snaks'),
+('Cola',5.90, 'Coca Cola','Drinks'),
+('Milki',2.90, 'Strauss','Dairy');
+
+//	Update an existing record
+UPDATE products SET price = 10 WHERE name ='Bamba';
+
+//	DELETE a Record ( an Entire record)
+DELETE FROM products 
+WHERE price >= 10;
+
+
+//	SEARCH Queires ( SELECT )
+
+SELECT vendor, name, price 
+FROM products;
+
+
+SELECT vendor, name, price 
+FROM products
+WHERE price < 8;
+
+
+SELECT vendor, name, price 
+FROM products
+WHERE vendor = 'Osem' OR vendor = 'Strauss';
+
+
+SELECT name, price 
+FROM products
+WHERE price < 5 AND ( vendor = 'Osem' OR vendor = 'Strauss' );
+
+
+SELECT vendor, name, price 
+FROM products
+ORDER BY price
+
+//	From highest to lowest
+SELECT vendor, name, price 
+FROM products
+ORDER BY price DESC
+
+//	Ascending Order ( Explicitly )
+SELECT vendor
+FROM products
+ORDER BY vendor ASC
+
+
+SELECT * FROM `products` WHERE price BETWEEN 5 and 8;
+
+
+SELECT * 
+FROM products
+WHERE id IN ( 2,3,10,15);
+
+//	Avoid duplicated record
+SELECT DISTINCT vendor
+FROM products
+ORDER BY vendor ASC
+
+SELECT DISTINCT name, vendor
+FROM products
+ORDER BY vendor ASC	//	Osem will appear twice ( Bamba, Osem AND Bisli Osem)
+
+

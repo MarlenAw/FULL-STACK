@@ -1,0 +1,31 @@
+* {
+    font-family: sans-serif;
+    color: #333;
+}
+
+#wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+#wrapper .header {
+    
+    background-color: yellow;
+    height: 80px;
+    padding: 10px;
+}
+
+#wrapper .content {
+    min-height: 400px;
+    background-color: gray;
+}
+
+#wrapper .sideMenu {
+    width: 250px;
+    background-color: gray;
+}
+
+#wrapper .footer {
+    background-color: lightblue;
+    text-align: center;
+}

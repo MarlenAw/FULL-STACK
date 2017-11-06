@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" style="border: 1px soli"  width="400" height="600"> </canvas>
+<script>
+    var c=document.getElementById("myCanvas");
+    var ctx=c.getContext("2d");
+    var my_gradient=ctx.createLinearGradient(0,0,170,0);
+    my_gradient.addColorStop(0,"black");
+    my_gradient.addColorStop(0.5,"red");
+    my_gradient.addColorStop(1,"white");
+    ctx.fillStyle=my_gradient;
+    ctx.fillRect(20,20,150,100);
+</script>
+</body>
+</html>

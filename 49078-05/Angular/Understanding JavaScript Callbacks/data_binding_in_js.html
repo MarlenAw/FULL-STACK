@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>How data binding works</title>
+	<script>
+	
+		var fullname;
+		
+		function doSomething( obj ) {
+			fullname = obj.value;
+		}
+		
+		function updateView(){
+			document.getElementById("fullname").innerHTML = fullname;
+		}
+		
+	</script>
+</head>
+<body>
+
+	Enter your name <input type="text" name="fullname" onkeyup="doSomething(this)"> <br>
+	
+	<h1>Hello <span id="fullname"></span></h1>
+
+</body>
+</html>

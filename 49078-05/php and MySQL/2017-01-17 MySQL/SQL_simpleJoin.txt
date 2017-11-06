@@ -1,0 +1,48 @@
+SELECT * 
+FROM products, categories 
+WHERE products.categoryid = categories.id;
+
+OUTPUT
+======
+
+id	name	price	categoryid	id	name
+1	Bamba		5		1		1	Snacks
+2	Bisli		8		1		1	Snacks
+3	Milki		3.5		3		3	Dairy
+4	Cola		11		4		4	Drinks
+
+
+
+SELECT 
+products.id,
+products.name AS bookName, 
+products.price, 
+categories.id AS categoryid, 
+categories.name AS categoryName
+FROM products, categories 
+WHERE products.categoryid = categories.id;
+
+OUTPUT
+======
+
+id	bookName	price	categoryid	categoryName
+1	Bamba		5			1			Snacks
+2	Bisli		8			1			Snacks
+3	Milki		3.5			3			Dairy
+4	Cola		11			4			Drinks
+
+
+
+
+SELECT DISTINCT categories.name
+FROM products, categories 
+WHERE products.categoryid = categories.id
+ORDER BY categories.name;
+
+OUTPUT
+======
+name
+Dairy
+Drinks
+Snacks
+Print

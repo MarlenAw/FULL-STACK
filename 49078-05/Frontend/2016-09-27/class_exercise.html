@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>jQuery first page</title>
+<meta charset="utf-8">
+<script src="jquery-3.1.0.js"></script>
+<script>
+var x;
+  $(document).ready(function(){
+  
+   $("ul#listb li:nth-child(3)").click(function(){
+  
+     $("ul#lista li:first").css({"background-color":"red","color":"white"});
+
+   });
+
+
+   $("ul#lista li:first").dblclick(function(){
+  
+     $("ul#listb li:last").css({"font-size":"25px","color":"orange"});
+
+   });
+
+
+
+var listbBgColor;
+
+   $("ul#lista li:nth-child(4)").hover(function(){
+
+     listbBgColor=$(".wrapper ul#listb li").css("background-color");
+  
+     $(".wrapper ul#listb li").css({"background-color":"#FF9900"});
+
+    },
+   
+    function(){
+     $(".wrapper ul#listb li").css({"background-color":listbBgColor});
+
+   });
+
+
+
+
+  $("ul li:contains('ff'), ul li:contains('cc')").click(function(){
+  
+     $(".wrapper").css({"border-color":"red"});
+
+   });
+
+
+
+   $("ul#listb li").hover(function(){
+   
+     $(this).next().css({"background-color":"#99AAFD"});
+     $(this).prev().css({"background-color":"#99AAFD"});
+   
+   },
+   
+   function(){
+   
+     $(this).next().css({"background-color":"#66FFCC"});
+     $(this).prev().css({"background-color":"#66FFCC"});
+   
+   });
+   
+  });
+
+
+  </script>
+
+  <style type="text/css">
+  *{margin:0;padding:0;}
+  .wrapper{
+  width:500px;
+  border:10px solid blue;
+  margin:10px auto;
+  }
+
+  ul{
+  list-style:none;
+  float:left;
+  width:200px;
+  margin-left:30px;
+  }
+
+  ul li{
+  width:200px;
+  border-bottom:2px solid #000000;
+  height:50px;
+  text-align:center;
+  line-height:50px;
+  background-color:#cacaca;
+  font-family:arial;
+  font-size:16px;
+  }
+
+  ul#listb li{background-color:#66FFCC;}
+  </style>
+
+ </head>
+
+ <body>
+
+ <div class="wrapper">
+   <ul id="lista">
+    <li>aaa</li>
+    <li>bbb</li>
+    <li>ccc</li>
+    <li>ddd</li>
+    <li>eee</li>
+    <li>fff</li>
+    <li>ggg</li>
+    <li>hhh</li>
+   </ul>
+
+   <ul id="listb">
+    <li>aaa</li>
+    <li>bbb</li>
+    <li>ccc</li>
+    <li>ddd</li>
+    <li>eee</li>
+    <li>fff</li>
+    <li>ggg</li>
+    <li>hhh</li>
+   </ul>
+
+<div style="clear:both;"></div>
+
+ </div>
+
+ </body >
+</html>

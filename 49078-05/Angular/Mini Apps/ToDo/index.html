@@ -1,0 +1,59 @@
+<!doctype html>
+<html ng-app="ToDo">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo</title>
+	<script src="//code.angularjs.org/1.6.0/angular.min.js"></script>
+	<script src="js/app.js"></script>
+</head>
+<body>
+
+	<div ng-controller="addTaskController">
+		
+		<div>
+			<label>Title</label><br>
+			<input type="text" ng-model="title" >
+		</div>
+		
+		<div>
+			<label>Description</label><br>
+			<textarea ng-model="description"></textarea>
+		</div>
+		
+		<div>
+			<label>Priority</label><br>
+			<select ng-model="priority">
+				<option>Low</option>
+				<option selected>Normal</option>
+				<option>High</option>
+			</select>
+		</div>
+		
+		<div>
+			<button ng-click="addNewTask()">Add Task</button>
+		</div>
+		
+	</div>
+	
+	<div ng-controller="listTasks">
+		<div>
+			<label>Search</label>
+			<input type="text" ng-model="keyword">
+		</div>
+		<table>
+			<tr>
+				<th>Title</th>
+				<th>Priority</th>
+			</tr>
+			
+			<tr ng-repeat="task in tasks | filter: keyword">
+				<td>{{ task.title }}</td>
+				<td>{{ task.priority }}</td>
+			</tr>
+			
+		</table>
+	</div>
+
+
+</body>
+</html>
