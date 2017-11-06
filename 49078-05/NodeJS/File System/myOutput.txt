@@ -1,0 +1,27 @@
+ Volume in drive C has no label.
+ Volume Serial Number is 701D-3F83
+
+ Directory of c:\Users\FullStack\Desktop\NodeJS
+
+03/21/2017  07:34 PM    <DIR>          .
+03/21/2017  07:34 PM    <DIR>          ..
+03/17/2017  10:40 AM               736 app.js
+03/17/2017  11:21 AM               574 app2.js
+03/21/2017  06:06 PM               303 app3.js
+03/21/2017  06:10 PM                79 Contact.js
+03/17/2017  11:37 AM               755 EventEmitter.js
+03/21/2017  06:51 PM               387 FileSystemAsync.js
+03/21/2017  06:50 PM               314 FileSystemSync.js
+03/17/2017  11:19 AM               350 List.js
+03/21/2017  06:42 PM                25 myData.txt
+03/21/2017  06:57 PM               103 myJSON.json
+03/21/2017  07:34 PM                 0 myOutput.txt
+03/21/2017  07:33 PM                 0 node
+03/14/2017  09:11 PM               394 oddNumbers_Async.js
+03/14/2017  08:58 PM               302 oddNumbers_Sync.js
+03/21/2017  06:07 PM             1,393 Phonebook.js
+03/21/2017  06:26 PM               518 PhonebookClass.js
+03/21/2017  07:00 PM               143 ReadJSONFile.js
+03/21/2017  07:31 PM               641 Util.js
+              18 File(s)          7,017 bytes
+               2 Dir(s)  76,372,168,704 bytes free

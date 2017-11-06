@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Validation Sample</title>
+
+
+    <script>
+        function invalidHandler(evt) {
+            // find the label for this form control
+            var label = evt.srcElement.parentElement.getElementsByTagName("label")[0];
+
+            // set the label's text color to red
+            label.style.color = 'red';
+
+            // stop the event from propagating higher
+            evt.stopPropagation();
+
+            // stop the browser's default handling of the validation error
+            evt.preventDefault();
+        }
+        function loadDemo() {
+            // register an event handler on the form to
+            // handle all invalid control notifications
+            document.register.addEventListener("invalid", invalidHandler, true);
+        }
+        window.addEventListener("load", loadDemo, false);
+    </script>
+</head>
+<body>
+   <header>
+       <h4>Form Validation Sample</h4>
+   </header>
+   <form name="register" method="get" action="FormValidationU.html" onsubmit="">
+       <fieldset>
+           <legend>Basic Details</legend>
+           <p><label for="studentName">Student Name:</label>
+           <input type="text" id="studentName" name="studentName" required></p>
+
+           <p><label for="phone">Mobile Phone:</label>
+               <input type="tel" id="phone" name="phone" placeholder="999999"
+                      pattern="\+?\d+" required></p>
+
+           <p><label for="email">email:</label>
+               <input type="email" id="email" name="email" ></p>
+
+           <p><label for="dob">DOB:</label>
+               <input id="dob" name="dob" type="date"
+                      placeholder="MM/DD/YYYY"></p>
+
+           <p><label for="classSubject">Class Subject:</label>
+               <input id="classSubject" name="classSubject" type="text" list="classSubjecs" title="Subjects"></p>
+           <datalist id="classSubjecs">
+               <option value="Mixed" label="Theoretic and Presentation matirials">
+               <option value="Presentation" label="Presentation class">
+               <option value="Exercise" label="Exercise pre class">
+           </datalist>
+
+           <p><input type="submit" name="register" value="Register"></p>
+       </fieldset>
+   </form>
+   <footer>
+       <h6>Form validation Sample</h6>
+   </footer>
+</body>
+</html>

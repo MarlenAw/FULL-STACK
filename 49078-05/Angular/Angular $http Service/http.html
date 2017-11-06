@@ -1,0 +1,31 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular Timeout</title>
+	<script src="//code.angularjs.org/1.6.0/angular.min.js"></script>
+	<script>
+		var app = angular.module('myApp',[]);
+		
+		app.controller('myController',function($scope, $http){
+			
+			$http.get('server/').then(function(response){
+				
+				$scope.fullname = response.data;
+				
+			});
+
+		});
+	</script>
+</head>
+<body>
+
+	<div ng-controller="myController">
+
+		Hello {{ fullname }}
+		
+	</div>
+	
+
+</body>
+</html>

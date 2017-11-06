@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+<span id="mySpan">
+
+  </span>
+<script>
+
+    var objSpan=document.getElementById("mySpan");
+    //objSpan.innerText = '<script>alert("hello world");<\/script>';
+    //objSpan.innerHTML = Hello <a>&lt;script&gt;alert(&quot;!&quot;)&lt;/script&gt;</a>!';
+    var userWebsite = '" onmouseover="alert(\'derp\')" "';
+    var profileLink = '<a href="' + escapeHtml(userWebsite) + '">Bob</a>';
+    objSpan.innerHtml = profileLink;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+<h2>Start Page</h2>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Phone</th>
+	</tr>
+	
+	<tr ng-repeat='person in db'>
+		<td>{{ person.name }}</td>
+		<td>{{ person.phone }}</td>
+		<td><a href='#!/edit/{{ person.id }}'>Edit</a></td>
+	</tr>
+	
+</table>

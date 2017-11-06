@@ -1,0 +1,73 @@
+//	#2
+INSERT INTO employees
+(fname,lname,dept)
+VALUES
+('Dani','Shovevani','Kids'),
+('Galit','Gutman','Web Dev');
+
+
+INSERT INTO employees (fname,lname,dept, salary) VALUES ('John','Jimm','Finance', 7500);
+
+
+//	#3
+UPDATE employees
+SET dept="Web Dev", salary="12000"
+WHERE id=3;
+
+
+//	#4
+SELECT dept, fname, lname
+FROM employees
+ORDER BY dept;
+
+OUTPUT:
+=======
+
+dept	fname	lname
+Design	Dana	Nana
+Finance	Alex	Alexy
+Finance	John	Jimm
+Web Dev	Dani	Shovevani
+Web Dev	Galit	Gutman
+
+
+
+//	#4 with a secondary order by salary
+SELECT dept, fname, lname, salary
+FROM employees
+ORDER BY dept, salary;
+
+
+OUTPUT:
+=======
+dept	fname	lname	salary ILS
+Design	Dana	Nana	9000
+Finance	Alex	Alexy	7000
+Finance	John	Jimm	7500
+Web Dev	Galit	Gutman	5000
+Web Dev	Dani	Shovevani	12000
+
+
+//	#5
+WRONG -- SELECT dept FROM employees;
+
+OUTPUT:
+=======
+dept
+Finance
+Design
+Web Dev
+Web Dev
+Finance
+
+CORRECT -- SELECT DISTINCT dept FROM employees;
+
+OUTPUT:
+=======
+dept
+Finance
+Design
+Web Dev
+
+//	#6
+UPDATE employees SET salary = salary * 1.15;

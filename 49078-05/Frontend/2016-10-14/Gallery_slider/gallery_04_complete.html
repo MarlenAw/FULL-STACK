@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>jQuery Gallery</title>
+<meta charset="utf-8">
+<script src="../jquery-3.1.0.js"></script>
+<script>
+ 
+   $(document).ready(function(){
+ var picnum=0;slideShow=false;
+$('#images img:gt(0)').css({"left":"500px"});
+
+
+
+        $('.links img').click(function(){
+            $("#images img:eq("+picnum+")").animate({"left":"500px"},800);
+            picnum=$(this).index();
+            $("#images img:eq("+picnum+")").css({"left":"-500px"});
+            $("#images img:eq("+picnum+")").animate({"left":"0px"},800);
+       });
+
+
+        $('input#next').click(function(){
+            $("#images img:eq("+picnum+")").animate({"left":"500px"},800);
+            picnum++;
+            if (picnum>7){picnum=0;}
+            $("#images img:eq("+picnum+")").css({"left":"-500px"});
+            $("#images img:eq("+picnum+")").animate({"left":"0px"},800);
+        });
+
+        $('input#prev').click(function(){
+            $("#images img:eq("+picnum+")").animate({"left":"-500px"},800);
+            picnum--;
+            if (picnum<0){picnum=7;}
+
+            $("#images img:eq("+picnum+")").css({"left":"500px"});
+            $("#images img:eq("+picnum+")").animate({"left":"0px"},800);
+        });
+
+        
+        $('input#play').click(function(){
+            if (!slideShow){
+            slideShow=true;
+            t=setInterval(function(){
+                $("#images img:eq("+picnum+")").animate({"left":"500px"},600);
+                picnum++;
+                if (picnum>8){picnum=0;}
+                $("#images img:eq("+picnum+")").css({"left":"-500px"});
+                $("#images img:eq("+picnum+")").animate({"left":"0px"},600);
+            },2000);
+            }
+        });
+
+        
+        $('input#stop').click(function(){
+            slideShow=false;
+            clearInterval(t);
+        });
+
+        
+
+   });
+ </script>
+
+
+  <style>
+  *{margin:0;padding:0}
+  body{
+       background:#202020;
+	   margin-top:20px;
+	   text-align:center;
+      }
+
+#images{
+        margin:0 auto;
+		width:500px;
+		height:375px;
+		text-align:center;
+		position:relative;
+		overflow:hidden;
+       }
+#images img{
+		width:500px;
+		height:375px;
+		position:absolute;
+		top:0px;
+		left:0px;
+       }
+
+.links{
+        margin-top:30px;
+		text-align:center;
+      }
+h2{
+   color:#FFFF00;
+   margin:10px auto;
+   font-size:50px;
+  }
+
+  input{
+  padding:10px 30px;
+  font-family:arial;
+  font-size:18px;
+  color:#990000;
+  }
+
+  #images input{
+  position:absolute;
+  z-index:100;
+  display:none;
+  top:172px;
+  }
+
+  #images input#prev{
+  left:30px;
+  }
+
+  #images:hover input{
+  display:block;
+  }
+
+  #images input#next{
+  right:30px;
+  }
+  </style>
+  </head>
+
+ <body>
+ <h2>תמונות</h2>
+ <div id="images">
+	 <img src="images/big/a.jpg" style="z-index:2"/>
+	 <img src="images/big/b.jpg" style="z-index:3"/>
+	 <img src="images/big/c.jpg" style="z-index:4"/>
+	 <img src="images/big/d.jpg" style="z-index:5"/>
+	 <img src="images/big/e.jpg" style="z-index:6"/>
+	 <img src="images/big/f.jpg" style="z-index:7"/>
+	 <img src="images/big/g.jpg" style="z-index:8"/>
+	 <img src="images/big/h.jpg" style="z-index:9"/>
+	 <img src="images/big/i.jpg" style="z-index:10"/>
+	 <input type="button" value="prev" id="prev">
+     <input type="button" value="next" id="next">
+</div>
+ <div class="links">
+ <img src="images/small/a.jpg"/>
+ <img src="images/small/b.jpg"/>
+ <img src="images/small/c.jpg"/>
+ <img src="images/small/d.jpg"/>
+ <img src="images/small/e.jpg"/>
+ <img src="images/small/f.jpg"/>
+ <img src="images/small/g.jpg"/>
+ <img src="images/small/h.jpg"/>
+ <img src="images/small/i.jpg"/>
+ </div>
+ <div style="clear:both"></div>
+ <input type="button" value="play" id="play">
+ <input type="button" value="stop" id="stop">
+
+
+
+ </body>
+</html>

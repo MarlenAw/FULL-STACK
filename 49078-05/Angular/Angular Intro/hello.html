@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Angular</title>
+	<script src="https://code.angularjs.org/1.6.2/angular.min.js" ></script>
+	<script>
+	
+		var x = 5;
+		
+		//	Create an App reference
+		var myApp = angular.module("myApp",[]);
+		
+		//	Create a controller
+		myApp.controller("myCTRL",function( $scope ){
+			
+			console.log("myCTRL started!");
+			
+			$scope.x = x;
+			
+		});
+		
+		
+	</script>
+</head>
+<body ng-app="myApp">
+
+	<h1>Hello Angular</h1>
+	<p>The value of x is {{ x }}</p>
+	
+	
+	Enter your name <input type="text" ng-model="fullname"  >
+	
+	
+	<h2>Hello {{ fullname }}</h2>
+	
+	<div style="background-color:black; color:white; padding: 20px;">
+	 {{ fullname }} how are you today?
+	</div>
+	
+	
+	<div id="myDiv" data-fullstack="cool">hello world</div>
+
+
+	<div ng-controller="myCTRL">
+		<p>The value of x is {{ x }}</p>
+	</div>
+	
+	
+	
+</body>
+</html>

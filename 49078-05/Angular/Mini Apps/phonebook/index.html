@@ -1,0 +1,51 @@
+<!doctype html>
+<html ng-app="phonebook">
+<head>
+    <meta charset="UTF-8">
+    <title>Phonebook</title>
+	<script src="//code.angularjs.org/1.6.0/angular.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/fake_data.js"></script>
+	<link href="css/style.css" rel="stylesheet" >
+</head>
+<body>
+
+	<div class="content-box" ng-controller="addContact">
+		<h2>Add New Contact</h2>
+		<label>Name</label>
+		<input type="text" ng-model="name" >
+		
+		<label>Phone</label>
+		<input type="text" ng-model="phone" >
+		
+		<button class="primary" ng-click="addNew()">Add</button>
+	</div>
+	
+	
+	<div class="content-box" ng-controller="listContacts">
+		<h2>List of Contacts</h2>
+		<table class="content-table">
+			<tr>
+				<td colspan="2" style="text-align: right;">
+				Search <input type="text" ng-model="keyword">
+				</td>
+			</tr>
+			<tr>
+				<th style="min-width: 120px;">Name</th>
+				<th style="min-width: 150px;">Phone</th>
+			</tr>
+			
+			<tr ng-repeat="contact in aContacts | filter: 'ea'">
+				<td>{{ contact.name }}</td>
+				<td>{{ contact.phone }}</td>
+			</tr>
+
+			
+			
+		</table>
+	</div>
+	
+
+
+</body>
+</html>

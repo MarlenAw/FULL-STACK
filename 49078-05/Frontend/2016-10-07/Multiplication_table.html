@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>jQuery Multiplication Table</title>
+<meta charset="utf-8">
+<script src="../jquery-3.1.0.js"></script>
+<script>
+
+$(document).ready(function(){
+
+ var headerX,res;
+
+
+
+ $("table tr:first td").css({"background-color":"#f19989"});
+ $("td:first","table tr").css({"background-color":"#f19989"});
+
+
+  /*********************************************************/
+  /* COLORING THE HEADERS WITH BLUE WHILE IN THE TABLE*/
+  /*********************************************************/
+
+ $("table tr").find("td").hover(function(){
+
+   headerX=$(this).index();
+ 
+   $(this).css({"background-color":"red"});
+   $(this).parent().find("td:first").css({"background-color":"#000099","color":"#ffffff"});
+   $("table tr:first td:eq("+headerX+")").css({"background-color":"#000099","color":"#ffffff"});
+   
+ 
+ },function(){
+
+   $(this).css({"background-color":"#ffffff"});
+   $(this).parent().find("td:first").css({"background-color":"#f19989","color":"#000000"});	 
+   $("table tr:first td:eq("+headerX+")").css({"background-color":"#f19989","color":"#000000"});
+
+ });
+
+
+
+
+
+  /*************************/
+  /*     FILLING RESULTS   */
+  /*************************/
+ 
+ $("table tr").children("td").click(function(){
+
+     var x=$(this).index();
+     var y=$(this).parent().index();
+     res=x*y;
+    if(x>0 && y>0)
+     {
+      $(this).html(res)
+     }
+
+ });
+ 
+/* 
+ $("table tr:gt(0)").find("td:gt(0)").click(function(){
+
+     var x=$(this).index();
+     var y=$(this).parent().index();
+     res=x*y;
+     $(this).html(res)
+ });
+*/
+
+
+  /**********************/
+  /* CLEARING THE TABLE */
+  /**********************/
+
+$("input").click(function(){
+
+$("table tr:gt(0)").find("td:gt(0)").html("&nbsp;");
+
+});
+
+
+
+
+
+
+}); //END READY
+
+
+   
+  </script>
+
+  <style type="text/css">
+   table{
+   border:1px solid #000000;
+   border-collapse:collapse;
+	margin:20px auto 0;
+   }
+   table tr td{
+   border:1px solid #000000;
+    height:50px;
+    width:50px;
+	font-family:arial;
+	font-size:18px;
+	text-align:center;
+	font-weight:bold;
+	cursor:hand;
+	cursor:pointer;
+   }
+  </style>
+
+ </head>
+
+ <body>
+<center><input type="button" value="reset table"></center>
+<table>
+<tr>
+	<td>&nbsp;</td>
+	<td>1</td>
+	<td>2</td>
+	<td>3</td>
+	<td>4</td>
+	<td>5</td>
+	<td>6</td>
+	<td>7</td>
+	<td>8</td>
+	<td>9</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>1</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>2</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>3</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>4</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>5</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>6</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>7</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>8</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>9</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>10</td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+</table>
+
+ </body >
+</html>

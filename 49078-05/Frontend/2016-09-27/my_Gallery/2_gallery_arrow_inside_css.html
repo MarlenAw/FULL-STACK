@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Gallery 2 css</title>
+<meta charset="utf-8">
+<script>
+
+  var x=1;
+  function next_pic()
+  { 
+   x++;
+   if (x==10) {x=1;}
+   document.getElementById('pic').src="pics/"+x+".jpg";
+   document.getElementById('picnum').innerHTML=x;
+  }
+	
+  function prev_pic()
+  { 
+   x--;
+   if (x==0) {x=9;}
+   document.getElementById('pic').src="pics/"+x+".jpg";
+   document.getElementById('picnum').innerHTML=x;
+  }
+
+  
+  </script>
+
+<style>
+.box{
+width:600px;
+height:450px;
+border:10px solid #000000;
+margin:30px auto;
+position:relative;
+}
+.pic_num{
+width:120px;
+height:30px;
+background:url('images/title_bg.png') top left repeat-x;
+color:#ffffff;
+line-height:30px;
+padding-left:20px;
+font-family:arial;
+font-size:16px;
+position:absolute;
+top:10px;
+left:0;
+}
+
+.prev_button{
+width:50px;
+height:50px;
+background:url('images/prev_arrow.png') top left no-repeat;
+border:none;
+position:absolute;
+top:200px;
+left:30px;
+display:none;
+outline: none;
+}
+
+.next_button{
+width:50px;
+height:50px;
+background:url('images/next_arrow.png') top left no-repeat;
+border:none;
+position:absolute;
+top:200px;
+right:30px;
+display:none;
+outline: none;
+}
+
+.box:hover input{display:block;}
+</style>
+
+ </head>
+
+ <body>
+<div class="box" id="box">
+    <img src="pics/1.jpg" id="pic"/>
+    <div class="pic_num">picture <span id="picnum">1</span>/9</div>
+	<input type="button" class="prev_button">
+	<input type="button" class="next_button">
+</div>
+
+ <script>
+  var inputprev=document.getElementsByTagName('input')[0];
+  var inputnext=document.getElementsByTagName('input')[1];
+  inputprev.addEventListener("click",prev_pic);
+  inputnext.addEventListener("click",next_pic);
+  </script>
+
+  
+ </body >
+</html>

@@ -1,0 +1,77 @@
+SELECT AVG(price)
+FROM products
+WHERE categoryid = 1
+
+OUTPUT
+======
+6.5
+
+
+
+SELECT categoryid, MAX(price)
+FROM products
+GROUP BY categoryid
+
+OUTPUT
+======
+
+categoryid	MAX(price)
+1			8
+3			3.5
+4			11
+
+
+
+SELECT categories.name, MAX(products.price)
+FROM products, categories
+WHERE products.categoryid = categories.id
+GROUP BY categories.name
+
+OUTPUT
+======
+
+name	MAX(products.price)
+Dairy	3.5
+Drinks	11
+Snacks	8
+
+
+SELECT vendor, COUNT( id )
+FROM products_old
+GROUP BY vendor;
+
+OUTPUT
+======
+
+
+vendor	COUNT( id )
+Osem	2
+Strauss	1
+Tempo	1
+
+###############################################
+# All vendors with more than one product
+#
+SELECT vendor, COUNT( id ) AS cnt
+FROM products_old
+GROUP BY vendor
+HAVING cnt > 1
+
+OUTPUT
+======
+
+vendor	cnt
+Osem	2
+
+###############################################
+# Count products of each vendor, from highest to lowest
+#
+SELECT vendor, COUNT( id ) AS cnt 
+FROM products_old 
+GROUP BY vendor ORDER BY cnt DESC
+
+
+vendor	cnt
+Osem	2
+Strauss	1
+Tempo	1

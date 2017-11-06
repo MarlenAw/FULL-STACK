@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="samp022">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample020-Bind</title>
+    <link rel="stylesheet" href="bootstrap.css"/>
+    <link rel="stylesheet" href="bootstrap-theme.css"/>
+    <script src="angular.js"></script>
+
+    <script type="text/javascript">
+        var myApp=angular.module("samp022",[]).
+        controller("defaultCtrl",function($scope){
+            $scope.todos = [
+                { action: "Get groceries", complete: false,linkx:"http://www.microsoft.com" },
+                { action: "Call plumber", complete: false,linkx:"http://www.microsoft.com" },
+                { action: "Buy running shoes", complete: true,linkx:"http://www.microsoft.com" },
+                { action: "Buy flowers", complete: false,linkx:"http://www.microsoft.com" },
+                { action: "Call family", complete: false,linkx:"http://www.microsoft.com" }];
+        });
+    </script>
+</head>
+<body>
+<div id="todoPanel" class="panel" ng-controller="defaultCtrl">
+    <h2 class="panel-header">Todo List Binding</h2>
+
+    <table class="table">
+        <tr>
+            <th>Action</th>
+            <th>Complete</th>
+            <th>Link</th>
+        </tr>
+        <tr ng-repeat="item in todos">
+            <td>{{item.action}}</td>
+            <td>{{item.complete}}</td>
+            <td><a href="{{item.linkx}}">Click...</a></td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>

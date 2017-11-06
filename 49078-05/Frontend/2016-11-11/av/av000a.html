@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function BuildTable()
+        {
+            var obj=document.getElementById("myTable");
+            var myTr=document.createElement("tr");
+            var myTd=document.createElement("td");
+            myTr.appendChild(myTd);
+            myTd.innerHTML="3A";
+            obj.appendChild(myTr);
+        }
+    </script>
+</head>
+<body onload="BuildTable()">
+   <table id="myTable" >
+       <tr>
+         <td>1A</td>
+       </tr>
+       <tr>
+           <td>2A</td>
+       </tr>
+   </table>
+</body>
+</html>

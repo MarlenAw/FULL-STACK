@@ -1,0 +1,21 @@
+<!doctype html>
+<html ng-app="contactsApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Untitled Document</title>
+	<script src="//code.angularjs.org/1.6.2/angular.min.js" ></script>
+	<script src="app.js"></script>
+</head>
+<body>
+
+	<div ng-controller="contactForm">
+		Name <input type="text" ng-model="name" > <br>
+		Phone <input type="text" ng-model="phone" > <br>
+		
+		<button ng-click="addNew()">Add</button>
+		
+	</div>
+
+
+</body>
+</html>

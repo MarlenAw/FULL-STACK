@@ -1,0 +1,50 @@
+//	EX1
+db.employees.insert( { name: 'Shimi', dept: 'kolbo', skills: ['angular','excel'], salary: 4500, email:'shimshim@gmail.com' } )
+db.employees.insert( { name: 'John', dept: 'web', skills: ['JavaScript','nodeJS'], salary: 9000 } )
+
+//	EX2
+db.employees.find( {}, { _id:0, name: 1, dept: 1, salary: 1   } )
+
+//	EX3
+db.employees.find( {}, { _id:0, name: 1, dept: 1, salary: 1   } ).sort( { salary: -1 })
+
+
+//	EX4
+db.employees.find( { $or: [ { dept: 'web'}, { skills: { $in: ['excel'] } } ] } )
+
+// 	EX5
+db.employees.find( { skills: { $in: ['balsamiq','excel'] } } )
+
+db.employees.find( { $or: [ { skills: 'balsamiq' }, { skills: 'excel' }]  } )			//	Maor's
+
+db.employees.find( { $or: [ { skills: { $in: ['balsamiq'] } }, { skills: { $in: ['excel'] } } ] } )		//	Gilad's
+
+
+//	EX6
+db.employees.find( { skills: 'mongodb', salary: { $gt: 10000 } } )
+
+//	EX7
+db.employees.find( { email: /gmail/} )			//	email include gmail
+
+db.employees.find( { email: /@gmail.com$/} )	//	email ends with @gmail.com
+ 
+db.employees.find( { email: /@gmail.com$/i} )	//	email ends with @gmail.com CASE inSeNsITiVE
+
+
+//	EX8
+db.employees.find( { car: { $exists: true } } )
+
+
+//	EX9 
+
+var alex = db.employees.findOne( { _id: ObjectId("58ff7e1240679d1895188b49") } );
+alex.skills.push( 'mongodb' );
+db.employees.save( alex );
+
+
+//	EX10
+var shukron = db.employees.findOne( { name: /shukron/i } );
+delete shukron.car
+db.employees.save( shukron );
+
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>jQuery first page</title>
+<meta charset="utf-8">
+<script src="../jquery-3.1.0.js"></script>
+<script>
+
+
+   $(document).ready(function(){
+   
+    $(".faq h3").click(function(){
+	
+	  $(this).next().slideToggle();
+	  
+	  $(this).next().siblings('div').slideUp();
+	
+	});
+   
+   }); //END READY
+
+
+
+  </script>
+
+  <style type="text/css">
+  *{margin:0;padding:0;}
+  h3{
+   font-family:arial;
+   font-size:18px;
+   color:blue;
+   font-weight:normal;
+   width:600px;
+   border:1px solid black;
+   height:30px;
+   padding-top:10px;
+  }
+  .faq div{
+  width:600px;
+  border:1px solid black;
+  display:none;
+  background-color:#FFFF99;
+  }
+  </style>
+
+
+ </head>
+
+ <body>
+
+<div class="faq">
+
+  <h3>1. why us?</h3>
+  <div>
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi mattis vulputate est a viverra. Maecenas odio elit, pretium vitae congue a, volutpat sed nisl. Cras varius ultricies dui, ut vehicula mauris pharetra sed. Quisque dignissim tellus ut felis tristique congue. Aenean malesuada eros quis neque elementum et vulputate nisl mattis. Nulla facilisi. Curabitur volutpat vulputate eros vel eleifend. Nullam tristique ipsum sed nunc tincidunt semper.
+  </div>
+
+  <h3>2. we save you money?</h3>
+  <div>
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi mattis vulputate est a viverra. Maecenas odio elit, pretium vitae congue a, volutpat sed nisl. Cras varius ultricies dui, ut vehicula mauris pharetra sed. Quisque dignissim tellus ut felis tristique congue. Aenean malesuada eros quis neque elementum et vulputate nisl mattis.
+  </div>
+
+  <h3>3. become a member</h3>
+  <div>
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi mattis vulputate est a viverra. Maecenas odio elit, pretium vitae congue a, volutpat sed nisl. Cras varius ultricies dui, ut vehicula mauris pharetra sed. Quisque dignissim tellus ut felis tristique congue.
+  </div>
+
+  <h3>4. protect the environment</h3>
+  <div>
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi mattis vulputate est a viverra. Maecenas odio elit, pretium vitae congue a, volutpat sed nisl. Cras varius ultricies dui, ut vehicula mauris pharetra sed. Quisque dignissim tellus ut felis tristique congue. Aenean malesuada eros quis neque elementum et vulputate nisl mattis. Nulla facilisi. Curabitur volutpat vulputate eros vel eleifend. Nullam tristique ipsum sed nunc tincidunt semper.
+  </div>
+
+ </body >
+</html>

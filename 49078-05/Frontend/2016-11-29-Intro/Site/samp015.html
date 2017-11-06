@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="samp014">
+<head>
+    <meta charset="UTF-8">
+    <title>samp014-Program Stracture</title>
+    <link rel="stylesheet" href="bootstrap.css"/>
+    <link rel="stylesheet" href="bootstrap-theme.css" />
+    <script src="angular.js"></script>
+    <script type="text/javascript">
+
+        var myapp=angular.module("samp014",[]);
+        var now=new Date();
+        myapp.value("nowValue",now);
+
+
+        myapp.controller("dayCtrl",function($scope,daysSvc){
+            $scope.day = daysSvc.today;
+        });
+
+        myapp.controller("tommorowCtrl",function($scope,daysSvc){
+            $scope.tommorow = daysSvc.tommorow;
+        });
+
+        myapp.directive("highlight", function()
+        {
+            return function(scope,element,attrs)
+            {
+                var dayFilter=$filter("dayName");
+
+                if (dayFilter(scope.day)==attrs["highlight"])
+                {
+                    return element.css("color","red");
+                }
+            }
+        });
+
+        myapp.filter("dayName",function()
+        {
+            var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday",
+                "Thursday", "Friday", "Saturday"];
+            return function(input)
+            {
+                return (angular.isNumber(input))?dayNames[input]:input;
+            }
+        });
+
+        myapp.service("daysSvc",function()
+        {
+            this.today=now.getDay();
+            this.tommorow=(this.today+1) % 7;
+
+        });
+
+    </script>
+</head>
+<body>
+<div class="panel" ng-controller="dayCtrl">
+    <div class="page-header">
+        <h3>AngularJS App</h3>
+    </div>
+    <h4>Today is {{day || "(unknown)" | dayName }}</h4>
+</div>
+<div class="panel" ng-controller="tommorowCtrl">
+    <h4  highlight="Thursday">Tomorrow is {{tommorow || "(unknown)" | dayName }}</h4>
+</div>
+
+</body>
+</html>
